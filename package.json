@@ -6,21 +6,32 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "serve": "npx localtunnel --port 3000",
+    "docker:build": "docker build --platform linux/arm64/v8 -t tracker .",
+    "docker:run": "docker run -p 3000:3000 tracker",
+    "docker:deploy": "docker build --platform linux/amd64 -t tracker . && docker login rbrander.ca:5000 && docker tag tracker rbrander.ca:5000/tracker && docker push rbrander.ca:5000/tracker"
+  },
+  "engines": {
+    "node": "^20.15.0"
   },
   "dependencies": {
+    "@types/react-leaflet": "^3.0.0",
+    "leaflet": "^1.9.4",
+    "next": "14.2.4",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.2.4"
+    "react-leaflet": "^4.2.1"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@types/leaflet": "^1.9.12",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "eslint": "^8",
+    "eslint-config-next": "14.2.4",
     "postcss": "^8",
     "tailwindcss": "^3.4.1",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.4"
+    "typescript": "^5"
   }
 }

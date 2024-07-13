@@ -1,40 +1,53 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Tracker
 
-## Getting Started
+a visual GPS trip tracker
 
-First, run the development server:
+---
+
+## Requirements
+
+- node v20
+- npm v10
+
+## Development
+
+Once the repo has been updated (git pull),
+
+run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) with your browser
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+### Optional
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+While running the server, the app can be exposed to be run via a tunnel using the command:
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+npm run serve
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+---
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+Once the code has been finished and ready to deploy, a docker container is created and run locally before being pushed to the registry for the server to pull down and run.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The docker container needs to built for the platform that it is intended to run on. The server will want `linux/amd64` and a MacBook Pro would like `linux/arm64/v8`, so these are passed when building using the `--platform` option.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+npm run docker:build
+npm run docker:run
+```
 
-## Deploy on Vercel
+At this point you can test the container by connecting to the same port (3000). Ensure the port is available by closing any previously run dev server instances.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+When finally ready to deploy it can be don all in one step:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```bash
+npm run docker:deploy
+```
+
+This will build the docker image for the `linux/amd64` platform, tag, and push the image to the server.

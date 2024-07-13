@@ -1,0 +1,40 @@
+TTD
+- fix bug with duplicate GPS coordinates
+- fix bug with GPS coordinates not updating despite location changing
+- add a way to download trips
+- get initial gps location on homepage, so we can use it as a pre-loaded start point on a new trip
+- add a way to delete trips
+- when tracking, put new coordinates at bottom, not top of map
+- when trip is saved; redirect back to trips listing
+- add loading screen before homepage (ie. show app name and logo or something for a second before transition to trips list)
+- add user authentication
+- save to a DB based on user
+- automate docker deploy and create a github webhook to deploy
+- add empty state
+- add pagination (for many trips)
+- add a map preview to card in trip listing; as a thumbnail
+- remove next.js boilerplat stuff like favicon, unused css, unused assets
+- create a css theme
+- create a desktop layout; mobile first is cool, but still...
+  - map for most of the screen
+  - left pane to show a list of trips
+  - default position is the active position captured at login
+  - perhaps icons at the bottom fo the left pane for account
+  - could have a top nav bar; logo on left, product name in center, account on right
+- add a link on rbrander.ca
+- have a toggle for high/low resolution (to save battery)
+- create a nav bar; mobile with icons: settings, trips, account
+  - settings
+    - light / dark mode
+    - highAccuracy (high/low) for battery saving
+  - trips (listing of existing trips)
+    - download all trips
+    - delete all trips
+  - account
+    - logout
+    - user details (e.g. name, email)
+
+
+
+Done
+- calculate distance

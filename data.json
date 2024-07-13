@@ -1,0 +1,29 @@
+[
+  [
+    {
+      "timestamp": 1719511724000,
+      "latitude": 43.660372,
+      "longitude": -79.343716
+    },
+    {
+      "timestamp": 1719511725000,
+      "latitude": 43.661539,
+      "longitude": -79.344986
+    },
+    {
+      "timestamp": 1719511726000,
+      "latitude": 43.663238,
+      "longitude": -79.344749
+    },
+    {
+      "timestamp": 1719511727000,
+      "latitude": 43.663483,
+      "longitude": -79.343704
+    },
+    {
+      "timestamp": 1719511728000,
+      "latitude": 43.660575,
+      "longitude": -79.342534
+    }
+  ]
+]
